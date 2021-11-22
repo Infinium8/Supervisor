@@ -40,6 +40,8 @@ In practice, you might watch your `Downloads/` folder for new files:
 created:::/home/me/Downloads/:::echo "New file added"
 ```
 
+**To start watching, simply run `supervisor`.** To modify the execution behavior, you can add configuration options. These are detailed below.
+
 ### Watching multiple directories
 
 To watch multiple directories, simply add a new line:

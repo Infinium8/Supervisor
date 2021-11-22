@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "ssupervisor"
-version = "1.0.3"
+version = "1.0.4"
 description = ""
 authors = ["Infinium <infinium-llc@protonamil.com>"]
 

@@ -39,7 +39,7 @@ class EventHandler:
 
 	def _run_process(self, event, event_type):
 		# Performs the script/command and logs it.
-		self.logger.log(f'{event_type}: [bold magenta]{event.src_path}[/bold magenta]')
+		self.logger.log(f'{event_type}', {event.src_path}, 'purple')
 		self.process(self._get_argument(event))
 
 	def dispatch(self, event):
@@ -90,10 +90,10 @@ class Watcher:
 	def _alert(self, config):
 		# Explicitly informs the user about the current
 		# Watcher configuration.
-		self.logger.log(f'\nEvent type: [bold magenta]{config[0]}[/bold magenta]')
-		self.logger.log(f'Directory: [bold cyan]{config[1]}[/bold cyan]')
-		self.logger.log(f'Operation: [bold green]{config[2]}[/bold green]\n')
-		self.logger.log('----------\n')
+		self.logger.log(f'Event type', config[0], 'magenta')
+		self.logger.log(f'Directory', config[1], 'cyan')
+		self.logger.log(f'Operation', config[2], 'green')
+		print('----------\n')
 
 	def _check_config(self):
 		for config in self.config:

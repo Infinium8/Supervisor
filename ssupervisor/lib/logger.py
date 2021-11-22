@@ -12,6 +12,6 @@ class Logger:
 			with open(self.output_file, 'a') as out_f:
 				out_f.write(f'\n{message}')
 
-	def log(self, message):
-		self.console.print(message)
-		self.log_to_file(message)
+	def log(self, title, message, color):
+		self.console.print(f'{title}: [bold {color}]{message}[/bold {color}]')
+		self.log_to_file(f'{title}: {message}')
