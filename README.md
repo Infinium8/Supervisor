@@ -71,6 +71,20 @@ To access these arguments, pass the `-c` or `--conf` flag before. For instance, 
 - `delete`: Deletes the config file.
 - `echo`: Prints the contents of the config file to the console.
 
+#### Argument passing
+
+Invoked with: `-p, --pass-argument`
+
+This will pass the changed file as a command-line argument to your script. For instance, consider the following `script.py`:
+
+```
+import sys
+
+print(sys.argv)
+```
+
+Invoking Supervisor with `supervisor -p` will add the file to the list of arguments.
+
 #### Recursive walking
 
 Invoked with: `-r, --recursive`
