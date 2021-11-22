@@ -1,6 +1,6 @@
 # Supervisor
 
-> Effortlessly run scripts when certain files change.
+> Effortlessly run scripts or commands when certain files change.
 
 Supervisor is a package that watches directories for changes. When specific changes take place, it invokes commands or scripts you specify.
 
