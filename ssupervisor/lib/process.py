@@ -1,4 +1,4 @@
-import subprocess
+from os import system
 
 class Process:
 	def __init__(self, logger = None):
@@ -6,8 +6,8 @@ class Process:
 		self.process = None
 
 	def _run(self):
-		subprocess.run(self.process.split())
-		self.logger.log(f'Executed: [bold green]{self.process}[/bold green]')
+		system(self.process)
+		self.logger.log('Executed', self.process, 'green')
 	
 	def __call__(self, process):
 		self.process = process
