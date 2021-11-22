@@ -1,8 +1,11 @@
 [tool.poetry]
 name = "ssupervisor"
 version = "1.0.5"
-description = ""
+description = "Effortlessly run scripts or commands when certain files change."
 authors = ["Infinium <infinium-llc@protonamil.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/Infinium8/Supervisor"
 
 [tool.poetry.dependencies]
 python = "^3.10"

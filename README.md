@@ -85,13 +85,23 @@ print(sys.argv)
 
 Invoking Supervisor with `supervisor -p` will add the file to the list of arguments.
 
+#### Logging
+
+Invoked with: `-l, --log`
+
+Although every change is printed to the console, you may want a log of all the events Supervisor executes. To do so, enable the `-l` flag.
+
+Note: You cannot watch your home directory AND enable logging. This would create an infinite loop.
+
+The log file is created at: `$HOME/supervisor.log`
+
 #### Recursive walking
 
 Invoked with: `-r, --recursive`
 
 **BEWARE!!**
 
-This enabled recursive checks of the filesystem. This means that watching your home directory, for instance, will watch all directories within it. If you don't use this option carefully, you could run into a nearly infinite series of observers.
+This enables recursive checks of the filesystem. This means that watching your home directory, for instance, will watch all directories within it. If you don't use this option carefully, your script could be invoked thousands of times without you doing anything. Some operating systems modify certain directories at arbitrary points in time. If you need recursive observation, make sure your script can be invoked hundreds or potentially thousands of times, depending on how far up in the directory tree you watch.
 
 **Do not use this option unless you know what you're doing.** Almost all uses of Supervisor do not need to use this option. It can be useful,  however, when you want to watch any change within a subdirectory.
 
@@ -103,17 +113,7 @@ We can add the configuration line:
 any:::/path/to/Supervisor/:::script.sh
 ```
 
-and invoke Supervisor with: `supervisor --recursive`. Then, any change within this directory is reported.
-
-#### Logging
-
-Invoked with: `-l, --log`
-
-Although every change is printed to the console, you may want a log of all the events Supervisor executes. To do so, enable the `-l` flag.
-
-Note: You cannot watch your home directory AND enable logging. This would create an infinite loop.
-
-The log file is created at: `$HOME/supervisor.log`
+and invoke Supervisor with: `supervisor --recursive`. Then, any change within this directory or any subdirectories is reported.
 
 ## Developing
 
